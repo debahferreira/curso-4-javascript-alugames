@@ -7,12 +7,13 @@ function alterarStatus(id) {
     let nomeJogo = jogo.querySelector('.dashboard__item__name');
     
     if(imagemJogo.classList.contains('dashboard__item__img--rented')) {
-        alert(`Você confirma a devolução do jogo ${nomeJogo.textContent}?`);
+        if(confirm(`Você confirma a devolução do jogo ${nomeJogo.textContent}?`)) {
         imagemJogo.classList.remove('dashboard__item__img--rented');
         botaoJogo.classList.remove('dashboard__item__button--return');
         botaoJogo.innerHTML = 'Alugar';
         listaDeAlugados.pop();
         quantidadeDeAlugados();
+        }
     } else {
         imagemJogo.classList.add('dashboard__item__img--rented');
         botaoJogo.classList.add('dashboard__item__button--return');
